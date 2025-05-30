@@ -20,7 +20,7 @@ with st.sidebar:
                ) 
 
 image = Image.open('Vergil.png')
-st.image(image, width=350)
+st.image(image, width=700)
 
 with st.expander('Analizar Motivación y Poder en un texto'):
     text1 = st.text_area('Háblame si te atreves: ')
