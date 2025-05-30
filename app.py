@@ -32,15 +32,15 @@ with st.expander('Analizar Motivación y Poder en un texto'):
         #blob = TextBlob(text1)
        
         
-        st.write('Polarity: ', round(blob.sentiment.polarity,2))
-        st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
+        st.write('Motivación: ', round(blob.sentiment.polarity,2))
+        st.write('Poder: ', round(blob.sentiment.subjectivity,2))
         x=round(blob.sentiment.polarity,2)
         if x >= 0.5:
-            st.write( 'Es un sentimiento Positivo 😊')
+            st.write( 'Estás muy motivado 😊')
         elif x <= -0.5:
-            st.write( 'Es un sentimiento Negativo 😔')
+            st.write( 'Dónde está tu motivación? 😔')
         else:
-            st.write( 'Es un sentimiento Neutral 😐')
+            st.write( 'Te hace falta motivación 😐')
 
 with st.expander('Corrección en inglés'):
        text2 = st.text_area('Escribe por favor: ',key='4')
