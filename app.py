@@ -1,26 +1,29 @@
 import streamlit as st
 from textblob import TextBlob
 from googletrans import Translator
+from PIL import Image
 
 translator = Translator()
 st.title('Uso de textblob')
 
-st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
+st.subheader("Vergil va a juzgar el poder y la motivación de lo que le digas. Puedes decirle cualquier cosa, si te atreves.")
 with st.sidebar:
-               st.subheader("Polaridad y Subjetividad")
+               st.subheader("Motivación y Poder")
                ("""
-                Polaridad: Indica si el sentimiento expresado en el texto es positivo, negativo o neutral. 
-                Su valor oscila entre -1 (muy negativo) y 1 (muy positivo), con 0 representando un sentimiento neutral.
+                Motivación: Indica si el sentimiento expresado en el texto representa mucha motivación, le falta motivación o es neutral. 
+                Su valor oscila entre -1 (muy poco motivado) y 1 (muy motivado), con 0 representando un nivel neutral de motivación.
                 
-               Subjetividad: Mide cuánto del contenido es subjetivo (opiniones, emociones, creencias) frente a objetivo
-               (hechos). Va de 0 a 1, donde 0 es completamente objetivo y 1 es completamente subjetivo.
+               Poder: Mide el nivel de poder de tu sentimiento expresado (opiniones, emociones, creencias) frente a objetivo
+               (hechos). Va de 0 a 1, donde 0 es completamente objetivo (muy poco poder) y 1 es completamente subjetivo (demasiado poder).
 
                  """
                ) 
 
+image = Image.open('Vergil.png')
+st.image(image, width=350)
 
-with st.expander('Analizar Polaridad y Subjetividad en un texto'):
-    text1 = st.text_area('Escribe por favor: ')
+with st.expander('Analizar Motivación y Poder en un texto'):
+    text1 = st.text_area('Háblame si te atreves: ')
     if text1:
 
         translation = translator.translate(text1, src="es", dest="en")
